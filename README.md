@@ -1,3 +1,4 @@
+
 1. <u>php artisan make:model Student -mcr</u>\
     -Model\
     -Migration\
@@ -143,3 +144,11 @@
         return redirect('student')->withSuccess('Deleted Successfully!');\
     }
 
+
+![1](https://github.com/Krish123-lang/CRUD-LARA/assets/56486342/2abbb897-160f-43e0-9c1b-f8e6f2fdac5e)
+
+![2](https://github.com/Krish123-lang/CRUD-LARA/assets/56486342/a1ca6841-c8eb-47d5-9c5d-facb68f25401)
+
+![3](https://github.com/Krish123-lang/CRUD-LARA/assets/56486342/5d1e93b7-ba3f-494e-b7df-dcedc5519c02)
+
+![4](https://github.com/Krish123-lang/CRUD-LARA/assets/56486342/24f71d88-bb21-4b30-aeaf-aea066ef176a)
