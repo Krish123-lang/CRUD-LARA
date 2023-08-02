@@ -1,20 +1,26 @@
 
-1. <u>php artisan make:model Student -mcr</u>\
-    -Model\
-    -Migration\
+1. `php artisan make:model Student -mcr`
+   ```
+    -Model
+    -Migration
     -Controller
+   ```
 
-2. <u> create_students_table.php </u>\
-    $table->string('firstname');\
+2. ` create_students_table.php `
+   ```
+    $table->string('firstname');
     $table->string('lastname');
+   ```
+   > php artisan migrate
 
-    <u>php artisan migrate</u>
-
-3. <u> web.php </u>\
+3. `web.php `
+   ```
     use App\Http\Controllers\StudentController;\
     Route::resource('student', StudentController::class);
+   ```
 
-4. views/student/index.blade.php\
+5. `views/student/index.blade.php`
+   ```
     @extends('layout.app')
 
     @section('content')
@@ -56,16 +62,20 @@
             </tbody>
         </table>
     @endsection
+   ```
 
 
-5. <u> StudentController.php</u>\
-    public function index()\
-    {\
-        $data = Student::all();\
-        return view('student.index', ['data' => $data]);\
+7. `StudentController.php`
+   ```
+    public function index()
+    {
+        $data = Student::all();
+        return view('student.index', ['data' => $data]);
     }
+   ```
 
-6. <u>student/create.blade.php</u>
+9. `student/create.blade.php`
+    ```
     @extends('layout.app')
     @section('content')
         <form action="{{route('student.store')}}" method="post">
@@ -76,23 +86,28 @@
             <input type="submit" value="Submit">
         </form>
     @endsection
+    ```
 
-7. <u> StudentController.php</u>\
-    public function create()\
-    {\
-        Student::create($request->all());\
-        return redirect('student')->withSuccess('Added successfully!');\
+11. `StudentController.php`
+    ```
+    public function create()
+    {
+        Student::create($request->all());
+        return redirect('student')->withSuccess('Added successfully!');
     }
+    ```
 
-8. <u>app\Models\Student.php</u>
-
-    class Student extends Model\
-    {\
-        use HasFactory;\
-        protected $fillable = ['firstname', 'lastname'];\
+13. `app\Models\Student.php`
+```
+    class Student extends Model
+    {
+        use HasFactory;
+        protected $fillable = ['firstname', 'lastname'];
     }
+```
 
-9. <u>student/show.blade.php</u>
+14. `student/show.blade.php`
+    ```
     @extends('layout.app')
 
     @section('content')
@@ -102,15 +117,19 @@
         <p><b>First Name: </b> {{ $data->firstname }} </p>
         <p><b>Last Name: </b> {{ $data->lastname }} </p>
     @endsection
+    ```
 
 
-10. <u> StudentController.php</u>\
-    public function show(Student $student)\
-        {\
-            return view('student.show', ['data' => $student]);\
+10. `StudentController.php`
+    ```
+    public function show(Student $student)
+        {
+            return view('student.show', ['data' => $student]);
         }
+    ```
 
-11. <u>student/edit.blade.php</u>
+12. `student/edit.blade.php`
+    ```
     @extends('layout.app')
     @section('content')
         <form action="{{ route('student.update', $data->id) }}" method="post">
@@ -122,29 +141,34 @@
             <input type="submit" value="Submit">
         </form>
     @endsection
+    ```
 
 
-12. <u> StudentController.php</u>\
-    public function edit(Student $student)\
-    {\
-        return view('student.edit', ['data' => $student]);\
+14. `StudentController.php`
+    ```
+    public function edit(Student $student)
+    {
+        return view('student.edit', ['data' => $student]);
     }
+    ```
 
-13. <u> StudentController.php</u>\
-    public function update(Request $request, Student $student)\
-    {\
-        $student->update($request->all());\
-        return redirect('student')->withSuccess('Updated Successfully!');\
+16. `StudentController.php`
+    ```
+    public function update(Request $request, Student $student)
+    {
+        $student->update($request->all());
+        return redirect('student')->withSuccess('Updated Successfully!');
     }
+    ```
 
-14. <u> StudentController.php</u>\
-    public function destroy(Student $student)\
-    {\
-        $student->delete();\
-        return redirect('student')->withSuccess('Deleted Successfully!');\
+18. `StudentController.php`
+    ```
+    public function destroy(Student $student)
+    {
+        $student->delete();
+        return redirect('student')->withSuccess('Deleted Successfully!');
     }
-
-
+    ```
 ![1](https://github.com/Krish123-lang/CRUD-LARA/assets/56486342/2abbb897-160f-43e0-9c1b-f8e6f2fdac5e)
 
 ![2](https://github.com/Krish123-lang/CRUD-LARA/assets/56486342/a1ca6841-c8eb-47d5-9c5d-facb68f25401)
